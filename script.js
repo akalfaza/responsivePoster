@@ -13,7 +13,8 @@ let model, webcam, labelContainer, maxPredictions;
 let hasOpenedWindow = false;
 // ⁉️ Probability threshold (80%) for triggering an action
 const THRESHOLD = 0.9;
-
+const DEFAULT_BG = "#FF0000"; // your current blue
+const ACTIVE_BG = "#03d503";  // green
 
 async function init() {
    // =================================================
@@ -112,26 +113,34 @@ async function predict() {
    // 1) clear all every frame
    ["name", "occupation", "date", "location", "websites"].forEach(id => {
       const el = document.getElementById(id);
-      if (el) 
+      if (el)
          el.classList.remove("active");
    });
 
    // 2) only trigger if confident
-   if (maxProb < 0.9) return;
+   if (maxProb < 0.9) {
+      document.body.style.backgroundColor = DEFAULT_BG;
+      return;
+   }
 
    // 3) debug: what class is detected?
    console.log("Detected:", prediction[maxIndex].className, maxProb.toFixed(2));
 
+   
    // 4) activate based on index
    if (maxIndex === 0) {
       document.getElementById("name")?.classList.add("active");
       document.getElementById("occupation")?.classList.add("active");
+      document.body.style.backgroundColor = ACTIVE_BG;
    } else if (maxIndex === 1) {
       document.getElementById("date")?.classList.add("active");
+      document.body.style.backgroundColor = ACTIVE_BG;
    } else if (maxIndex === 2) {
       document.getElementById("location")?.classList.add("active");
+      document.body.style.backgroundColor = ACTIVE_BG;
    } else if (maxIndex === 3) {
       document.getElementById("websites")?.classList.add("active");
+      document.body.style.backgroundColor = ACTIVE_BG;
    }
    console.log("Detected:", prediction[maxIndex].className, maxProb.toFixed(2));
    // =================================================
