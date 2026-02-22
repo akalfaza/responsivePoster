@@ -23,7 +23,7 @@ const RING_IMAGES = {
   name: ["img/tiri_1.jpg", "img/tiri_2.jpg"],
   date: ["img/morakana_cumulus.png", "img/morakana_deeptalking.png"],
   location: ["img/tiri_oracle1.jpg", "img/tiri_oracle2.jpg"],
-  websites: ["img/tiri_7.jpg", "img/tiri_8.jpg"],
+  websites: ["img/website_1.png", "img/website_2.png"],
 };
 
 const imgLayer = () => document.getElementById("img-layer");
