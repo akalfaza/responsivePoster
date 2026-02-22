@@ -134,6 +134,25 @@ canvas {
   z-index: 1;
 }
 
+/* individual pop-in image */
+.popimg{
+  position: absolute;
+  width: min(22vw, 260px);
+  max-width: 260px;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.98);
+  transition: opacity 250ms ease, transform 250ms ease;
+  filter: contrast(1.05);
+  /* optional: make it feel more “screen/print” */
+  /* mix-blend-mode: screen; */
+}
+
+.popimg.show{
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
 
 /* Circles ================================================ */
 .poster {
