@@ -1,7 +1,8 @@
 // =================================================
 // ✅ ➊ Paste your model URL
 // =================================================
-const URL = "https://teachablemachine.withgoogle.com/models/pTRugZ3WN/";
+// const URL = "https://teachablemachine.withgoogle.com/models/pTRugZ3WN/";
+const URL = "https://teachablemachine.withgoogle.com/models/OQI0vZlqw/";
 
 
 // =================================================
