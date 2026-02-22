@@ -127,30 +127,22 @@ canvas {
 
 
 /* Images ================================================= */
-#img-layer{
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* individual pop-in image */
 .popimg{
-  position: absolute;
-  width: min(22vw, 260px);
-  max-width: 260px;
-  border-radius: 10px;
-  opacity: 0;
+  position: fixed;
+  width: 300px; 
+  height: 260px;
+  border-radius: 90%;
+  opacity: 1;
   transform: translate(-50%, -50%) scale(0.98);
   transition: opacity 250ms ease, transform 250ms ease;
-  filter: contrast(1.05);
-  /* optional: make it feel more “screen/print” */
-  /* mix-blend-mode: screen; */
+  pointer-events: none;
+  z-index: 1; /* behind rings if rings are z-index 2 */
+  animation: spin 22s linear infinite;
 }
 
-.popimg.show{
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  to   { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
 }
 
 
